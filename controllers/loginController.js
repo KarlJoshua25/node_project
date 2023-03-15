@@ -19,7 +19,7 @@ exports.postLogin = (req, res) => {
     if (results.length > 0) {
       res.render('home');
     } else {
-      res.render('login', { errorMessage: 'Invalid username or password' });
+      res.render('login', { errorMessage: 'Invalid Email or Password' });
     }
   });
 };
