@@ -1,5 +1,6 @@
 const mysql = require('mysql2');
-
+const express = require('express');
+const bodyParser = require('body-parser');
 // Create a MySQL connection
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -7,6 +8,13 @@ const connection = mysql.createConnection({
     password: '',
     database: 'nodeapps'
 });
+
+// Create Express app
+const app = express();
+
+// Use Body Parser middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 exports.getRegisterPage = (req, res) => {
     res.render('register', { message: null });
@@ -29,16 +37,33 @@ exports.registerUser = (req, res) => {
         }
     }
     // Insert user into MySQL database
-    const query = `INSERT INTO users (firstname, lastname, email, password, gender, usertype) VALUES (?, ?, ?, ?, ?, ?)`;
-    connection.query(query, [firstname, lastname, email, encryptedPassword, gender, usertype], (err, result) => {
+    const query = `SELECT * FROM users WHERE email = ?`;
+    connection.query(query, [email], (err, results) => {
         if (err) {
-            console.error(err);
-            res.render('register', { message: 'Error registering user' });
-        } else {
-            res.render('login', { message: 'User successfully registered' });
+          console.error(err);
+          return res.status(500).send('Server Error');
         }
-    });
+    
+        if (results.length > 0) {
+          return res.render('register', { errmessage: 'Email Already Exist'})
+        } else{
+           const con = `INSERT INTO users (firstname, lastname, email, password, gender, usertype) VALUES (?, ?, ?, ?, ?, ?)`;
+            connection.query(con, [firstname, lastname, email, encryptedPassword, gender, usertype], (err, result) => {
+                if (err) {
+                    console.error(err);
+                    res.render('register', { message: 'Error registering user' });
+                } else {
+                    res.render('login', { message: 'User successfully registered' });
+                }
+            });
+            
+        }
+      });
+   
 
+   
+  // Check if email already exists in database
+ 
 
 };
 
