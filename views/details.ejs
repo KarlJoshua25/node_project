@@ -232,7 +232,7 @@
     <div class="container">
         <header>Registration</header>
 
-        <form action="#">
+        <form action="/details" method="post">
             <div class="form first">
                 <div class="details personal">
                     <span class="title">Personal Details</span>
@@ -240,41 +240,41 @@
                     <div class="fields">
                         <div class="input-field">
                             <label>First Name</label>
-                            <input type="text" placeholder="Enter your name" required>
+                            <input name="firstname" type="text" placeholder="Enter your name" required>
                         </div>
 
                         <div class="input-field">
                             <label>Middle Name</label>
-                            <input type="text" placeholder="Enter your name" required>
+                            <input name="middlename" type="text" placeholder="Enter your name" required>
                         </div>
 
                         <div class="input-field">
                             <label>Last Name</label>
-                            <input type="text" placeholder="Enter your name" required>
+                            <input name="lastname" type="text" placeholder="Enter your name" required>
                         </div>
 
                         <div class="input-field">
                             <label>Date of Birth</label>
-                            <input type="date" placeholder="Enter birth date" required>
+                            <input name="birthdate" type="date" placeholder="Enter birth date" required>
                         </div>
                         <div class="input-field">
                             <label>Gender</label>
-                            <select required>
+                            <select name="gender" required>
                                 <option disabled selected>Select gender</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                                <option>Others</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Others">Others</option>
                             </select>
                         </div>
 
                         <div class="input-field">
                             <label>Civil Status</label>
-                            <select required>
+                            <select name="civilstatus" required>
                                 <option disabled selected>Select Status</option>
-                                <option>Married</option>
-                                <option>Single</option>
-                                <option>Seperated</option>
-                                <option>Widowed</option>
+                                <option value="Married">Married</option>
+                                <option value="Single">Single</option>
+                                <option value="Seperated">Seperated</option>
+                                <option value="Widowed">Widowed</option>
                             </select>
                         </div>
 
@@ -282,9 +282,9 @@
                             <label>Hobby</label>
                             <div class="checkbox">
 
-                                <input type="checkbox" name="" id="">Coding                                
-                                <input type="checkbox" name="" id="">Playing Games
-                                <input type="checkbox" name="" id="">Others
+                                <input type="checkbox" name="hobby" value="Coding">Coding                                
+                                <input type="checkbox" name="hobby" value="Playing Games">Playing Games
+                                <input type="checkbox" name="hobby" value="Others">Others
 
                             </div>
 
@@ -298,51 +298,52 @@
                     <div class="fields">
                         <div class="input-field">
                             <label>Home Address</label>
-                            <input type="text" placeholder="Enter ID type" required>
+                            <input name="address" type="text" placeholder="Enter ID type" required>
                         </div>
 
                         <div class="input-field">
                             <label>Region</label>
-                            <select name="" id="">
-                                <option value="">Region I</option>
-                                <option value="">Region II</option>
-                                <option value="">Region III</option>
-                                <option value="">Region IV-A</option>
-                                <option value="">Region IV-B</option>
-                                <option value="">Region V</option>
-                                <option value="">Region VI</option>
-                                <option value="">Region VII</option>
-                                <option value="">Region VIII</option>
+                            <select name="region" id="">
+                                <option value="Region I">Region I</option>
+                                <option value="Region II">Region II</option>
+                                <option value="Region III">Region III</option>
+                                <option value="Region IV-A">Region IV-A</option>
+                                <option value="Region IV-B">Region IV-B</option>
+                                <option value="Region V">Region V</option>
+                                <option value="Region VI">Region VI</option>
+                                <option value="Region VII">Region VII</option>
+                                <option value="Region VIII">Region VIII</option>
                             </select>
                         </div>
 
                         <div class="input-field">
                             <label>City</label>
-                            <select name="" id="">
-                                <option value="">Batangas</option>
-                                <option value="">Manila</option>
-                                <option value="">Quezon City</option>
-                                <option value="">Makati</option>
-                                <option value="">Davao</option>
-                                <option value="">Cagayan De Oro</option>
-                                <option value="">Cebu</option>
-                                <option value="">Iloilo</option>
-                                <option value="">Zamboanga</option>
+                            <select name="city" id="">
+                                <option value="Batangas">Batangas</option>
+                                <option value="Manila">Manila</option>
+                                <option value="Quezon City">Quezon City</option>
+                                <option value="Makati">Makati</option>
+                                <option value="Davao">Davao</option>
+                                <option value="Cagayan De Oro">Cagayan De Oro</option>
+                                <option value="Cebu">Cebu</option>
+                                <option value="Iloilo">Iloilo</option>
+                                <option value="Zamboanga">Zamboanga</option>
                             </select>
                         </div>
 
                         <div class="input-field">
                             <label>Zipcode</label>
-                            <input type="text" maxlength="4" required>
+                            <input name="zipcode" type="text" maxlength="4" required>
                         </div>
+                        <button class="nextBtn">
+                            <input type="submit" value="Submit" class="btnText">
+                            <i class="uil uil-navigator"></i>
+                        </button>
 
                        
                     </div>
 
-                    <button class="nextBtn">
-                        <span class="btnText">Next</span>
-                        <i class="uil uil-navigator"></i>
-                    </button>
+                    
                 </div>
             </div>
         </form>

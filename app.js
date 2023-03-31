@@ -3,9 +3,11 @@ const app = express();
 const port = 3000;
 const mysql = require('mysql2');
 const registerRoutes = require('./routes/register');
+const detailsRoutes = require('./routes/details');
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use('/register', registerRoutes);
+app.post('/details', detailsRoutes);
 
 const loginRoutes = require('./routes/login');
 const { Router } = require('express');
